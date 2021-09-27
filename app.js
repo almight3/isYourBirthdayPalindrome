@@ -9,6 +9,7 @@ showButton.addEventListener("click", clickHandler);
 function clickHandler(){
   outputMessage.style.display = "none";
   calculate .innerHTML = "Calculating"
+  calculate.style.display  = "block"
   loadingImg.style.display  = "block"
   
   loadingImg.setAttribute('src', './img/1.gif')
