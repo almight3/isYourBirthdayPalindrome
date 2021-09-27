@@ -2,11 +2,14 @@ let dateOfBirth = document.querySelector("#birth-date");
 let showButton = document.querySelector("#show-button");
 let outputMessage = document.querySelector("#output-message");
 let loadingImg = document.querySelector("#img")
+let calculate = document.querySelector("#calculate")
 
 showButton.addEventListener("click", clickHandler);
 
 function clickHandler(){
-  outputMessage.style.display = "none";   
+  outputMessage.style.display = "none";
+  calculate.style.display = "block" 
+  calculate.innerHTML = "Calculating"  
   loadingImg.style.display  = "block"
   loadingImg.setAttribute('src', './img/1.gif')
   let birthdayString = dateOfBirth.value;
@@ -20,6 +23,7 @@ function clickHandler(){
           year: Number(listOfDate[0])
         }; 
         setTimeout(()=>{
+          calculate.style.display = "none" 
           loadingImg.style.display  = "none"
           outputMessage.style.display = "block"; 
           let isPalindrome = checkPalindromeForAllDateFormats(date);
@@ -32,7 +36,7 @@ function clickHandler(){
            outputMessage.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${ctr} days! 😔`;
          }
 
-        },3000)
+        },4000)
   }
 }
 
