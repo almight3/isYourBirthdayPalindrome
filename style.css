@@ -33,7 +33,18 @@ font-size: 24px;
 
 }
 
-
+img{
+    max-width: 300px;
+    display: block;
+    margin: auto;
+ 
+}
+.display-none{
+    display: none;
+}
+.display-block{
+    display: block;
+}
 
 
 

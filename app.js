@@ -1,20 +1,28 @@
 let dateOfBirth = document.querySelector("#birth-date");
 let showButton = document.querySelector("#show-button");
 let outputMessage = document.querySelector("#output-message");
+let loadingImg = document.querySelector("#img")
 
 showButton.addEventListener("click", clickHandler);
 
 function clickHandler(){
-     let birthdayString = dateOfBirth.value;
-     if(birthdayString !== ''){
-        let listOfDate = birthdayString.split('-'); 
+  outputMessage.style.display = "none";   
+  loadingImg.style.display  = "block"
+  loadingImg.setAttribute('src', './img/1.gif')
+  let birthdayString = dateOfBirth.value;
     
+  if(birthdayString !== ''){
+        let listOfDate = birthdayString.split('-'); 
+       
         let date = {
           day: Number(listOfDate[2]),
           month: Number(listOfDate[1]),
           year: Number(listOfDate[0])
         }; 
-        let isPalindrome = checkPalindromeForAllDateFormats(date);
+        setTimeout(()=>{
+          loadingImg.style.display  = "none"
+          outputMessage.style.display = "block"; 
+          let isPalindrome = checkPalindromeForAllDateFormats(date);
         if(isPalindrome){
             outputMessage.innerText = 'Yay! your birthday is a palindrome!! 🥳🥳';
          }
@@ -24,6 +32,7 @@ function clickHandler(){
            outputMessage.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${ctr} days! 😔`;
          }
 
+        },3000)
   }
 }
 
