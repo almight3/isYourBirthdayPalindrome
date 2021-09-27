@@ -8,9 +8,9 @@ showButton.addEventListener("click", clickHandler);
 
 function clickHandler(){
   outputMessage.style.display = "none";
-  calculate.style.display = "block" 
+  calculate .innerHTML = "Calculating"
   loadingImg.style.display  = "block"
-  calculate.innerHTML = "Calculating" 
+  
   loadingImg.setAttribute('src', './img/1.gif')
   let birthdayString = dateOfBirth.value;
     
@@ -24,6 +24,7 @@ function clickHandler(){
         }; 
         setTimeout(()=>{
           calculate.style.display = "none" 
+        
           loadingImg.style.display  = "none"
           outputMessage.style.display = "block"; 
           let isPalindrome = checkPalindromeForAllDateFormats(date);
